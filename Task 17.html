@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grading System</title>
+    <script>
+        window.onload = function() {
+            var score = prompt("Enter your score (0-100):");
+            score = Number(score);
+            var grade = "";
+            if (isNaN(score) || score < 0 || score > 100) {
+                grade = "Please enter a valid score between 0 and 100.";
+            } else if (score >= 90) {
+                grade = "Grade: A";
+            } else if (score >= 80) {
+                grade = "Grade: B";
+            } else if (score >= 70) {
+                grade = "Grade: C";
+            } else if (score >= 60) {
+                grade = "Grade: D";
+            } else {
+                grade = "Grade: F";
+            }
+            document.getElementById("output").innerText = grade;
+        }
+    </script>
+</head>
+<body>
+    <p id="output"></p>
+</body>
+</html>

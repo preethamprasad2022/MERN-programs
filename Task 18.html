@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grading System</title>
+    <script>
+        window.onload = function() {
+            var repeatCount = prompt("How many times do you want to repeat the text?");
+            repeatCount = Number(repeatCount);
+            var output = "";
+            if (isNaN(repeatCount) || repeatCount < 1) {
+                output = "Please enter a valid positive number for repetitions.";
+            } else {
+                var text = prompt("Enter the text you want to repeat:");
+                for (var i = 1; i <= repeatCount; i++) {
+                    output += "Repeat #" + i + ": " + text + "<br>";
+                }
+            }
+            document.getElementById("output").innerHTML = output;
+        }
+    </script>
+</head>
+<body>
+    <p id="output"></p>
+</body>
+</html>
