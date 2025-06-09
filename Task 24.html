@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Form for India</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-control, .form-select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .form-control:focus, .form-select:focus, textarea:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4">Basic Form</h2>
+        <form id="basicForm"></form>
+            <div class="mb-3">
+            <label for="firstName" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="firstName" placeholder="Enter your first name" required>
+            <div class="error" id="firstNameError"></div>
+            </div>
+            <div class="mb-3">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lastName" placeholder="Enter your last name" required>
+            <div class="error" id="lastNameError"></div>
+            </div>
+            <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+            <div class="error" id="emailError"></div>
+            </div>
+            <div class="mb-3">
+            <label for="phone" class="form-label">Phone Number</label>
+            <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number" required>
+            <div class="error" id="phoneError"></div>
+            </div>
+            <div class="mb-3">
+            <label for="address" class="form-label">Address</label>
+            <input type="text" class="form-control" id="address" placeholder="Enter your address" required>
+            <div class="error" id="addressError"></div>
+            </div>
+            <div class="mb-3">
+            <label for="city" class="form-label">City</label>
+            <input type="text" class="form-control" id="city" placeholder="Enter your city" required>
+            <div class="error" id="cityError"></div>
+            </div>
+            <div class="mb-3">
+            <label for="state" class="form-label">State</label>
+            <select class="form-select" id="state" required>
+                <option value="">Select your state</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+            </select>
+            <div class="error" id="stateError"></div>
+            </div>
+            <div class="mb-3">
+            <label for="projectDescription" class="form-label">Project Description</label>
+            <textarea class="form-control" id="projectDescription" rows="3" placeholder="Enter project description" required></textarea>
+            <div class="error" id="projectDescriptionError"></div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <script>
+            document.getElementById('basicForm').addEventListener('submit', function(event) {
+            let isValid = true;
+
+            function showError(inputId, message) {
+                const errorElement = document.getElementById(inputId + 'Error');
+                errorElement.textContent = message;
+                isValid = false;
+            }
+
+            function clearError(inputId) {
+                const errorElement = document.getElementById(inputId + 'Error');
+                errorElement.textContent = '';
+            }
+
+            const firstName = document.getElementById('firstName');
+            if (firstName.value.trim() === '') {
+                showError('firstName', 'First name is required.');
+            } else {
+                clearError('firstName');
+            }
+
+            const lastName = document.getElementById('lastName');
+            if (lastName.value.trim() === '') {
+                showError('lastName', 'Last name is required.');
+            } else {
+                clearError('lastName');
+            }
+
+            const email = document.getElementById('email');
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email.value.trim())) {
+                showError('email', 'Enter a valid email address.');
+            } else {
+                clearError('email');
+            }
+
+            const phone = document.getElementById('phone');
+            const phonePattern = /^[0-9]{10}$/;
+            if (!phonePattern.test(phone.value.trim())) {
+                showError('phone', 'Enter a valid 10-digit phone number.');
+            } else {
+                clearError('phone');
+            }
+
+            const address = document.getElementById('address');
+            if (address.value.trim() === '') {
+                showError('address', 'Address is required.');
+            } else {
+                clearError('address');
+            }
+
+            const city = document.getElementById('city');
+            if (city.value.trim() === '') {
+                showError('city', 'City is required.');
+            } else {
+                clearError('city');
+            }
+
+            const state = document.getElementById('state');
+            if (state.value === '') {
+                showError('state', 'State is required.');
+            } else {
+                clearError('state');
+            }
+
+            const projectDescription = document.getElementById('projectDescription');
+            if (projectDescription.value.trim() === '') {
+                showError('projectDescription', 'Project description is required.');
+            } else {
+                clearError('projectDescription');
+            }
+
+            if (!isValid) {
+                event.preventDefault();
+            }
+            });
+        </script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multiply and Divide Two Numbers</title>
+    <style>
+        .container {
+            border: 1px solid #aaa;
+            padding: 20px;
+            width: 350px;
+            margin-top: 40px;
+        }
+        label, input, button {
+            margin: 5px 0;
+        }
+        input[type="text"] {
+            width: 120px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <label>1st Number: </label>
+            <input type="text" id="num1">
+        </div>
+        <div>
+            <label>2nd Number: </label>
+            <input type="text" id="num2">
+        </div>
+        <div>
+            <button onclick="multiply()">Multiply</button>
+            <button onclick="divide()">Divide</button>
+        </div>
+        <div>
+            <p>The Result Is :</p>
+            <span id="result"></span>
+        </div>
+    </div>
+
+    <script>
+        function multiply() {
+            var n1 = parseFloat(document.getElementById('num1').value);
+            var n2 = parseFloat(document.getElementById('num2').value);
+            document.getElementById('result').textContent = n1 * n2;
+        }
+        function divide() {
+            var n1 = parseFloat(document.getElementById('num1').value);
+            var n2 = parseFloat(document.getElementById('num2').value);
+            if (n2 === 0) {
+                document.getElementById('result').textContent = "Cannot divide by zero";
+            } else {
+                document.getElementById('result').textContent = n1 / n2;
+            }
+        }
+    </script>
+</body>
+</html>
