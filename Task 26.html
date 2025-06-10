@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Clock</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="clock"></div>
+    <button id="startButton">Click me</button>
+    <button id="stopButton">Stop</button>
+
+    <script>
+        let intervalId;
+
+        function updateClock() {
+            const clockElement = document.getElementById('clock');
+            const now = new Date();
+            clockElement.textContent = now.toString();
+        }
+
+        document.getElementById('startButton').addEventListener('click', () => {
+            if (!intervalId) {
+                updateClock(); // Update immediately
+                intervalId = setInterval(updateClock, 1000); // Update every second
+            }
+        });
+
+        document.getElementById('stopButton').addEventListener('click', () => {
+            clearInterval(intervalId);
+            intervalId = null;
+        });
+    </script>
+</body>
+</html>
