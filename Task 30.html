@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlickFinder</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #222;
+            color: white;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+        .hero {
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+        .hero img {
+            width: 100%;
+            height: auto;
+        }
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .hero-text h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        .hero-text p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        .hero-text button {
+            padding: 10px 20px;
+            background-color: #00bfa5;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .hero-text button:hover {
+            background-color: #008c7a;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">FlickFinder</div>
+        <div class="links">
+            <a href="#">Home</a>
+            <a href="#">Tv Show</a>
+            <a href="#">Movie</a>
+            <a href="#">Upcoming</a>
+            <a href="#" style="background-color: #00bfa5; padding: 5px 10px; border-radius: 5px;">Favorite</a>
+        </div>
+    </div>
+    <div class="hero">
+        <img src="/image.jpeg" alt="Hero Image">
+        <div class="hero-text">
+            <h1>Bringing the Big Screen to Your Screen</h1>
+            <p>Discover, critique, and celebrate movies with honest reviews and fresh takes on every film.</p>
+            <button>Discover More</button>
+        </div>
+    </div>
+</body>
+</html>
